@@ -17,7 +17,14 @@ cc::Fraction::Fraction():
 
 cc::Solution cc::Fraction::solve() const
 {
-	return Solution();
+	if (_denominator == 0)
+	{
+		return Solution(ExistenceType::Undefined);
+	}
+	else
+	{
+		return Solution(_numerator / _denominator);
+	}
 }
 
 cc::ll cc::Fraction::getNumerator() const
