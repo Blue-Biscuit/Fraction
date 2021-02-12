@@ -1,5 +1,20 @@
 #include "Fraction.h"
 
+#include <numeric>
+
+cc::ull __gcd_helper(cc::ull x, cc::ull y)
+{
+	if (y == 0)
+	{
+		return x;
+	}
+	else
+	{
+		return __gcd_helper(y, x % y);
+	}
+}
+
+
 cc::Fraction::Fraction(ll numerator, ll denominator)
 {
 	_setup(numerator, denominator);
@@ -15,9 +30,30 @@ cc::Fraction::Fraction():
 {
 }
 
-cc::Fraction cc::Fraction::operator+(const Fraction&) const
+cc::Fraction cc::Fraction::operator+(const Fraction& o) const
 {
-	return Fraction();
+	//	1. Find the common denominator between the two numbers.
+	//	2. Adjust the numerator based upon the new denominator.
+	//	3. Perform the sum, making sure to account for the sign of the fractions.
+
+	//	1. Find the common denominator between the two numbers.
+	ull den = __gcd_helper(_denominator, o._denominator);
+
+	//	2. Adjust the numerator based upon the new denominator.
+	ll numx = _numerator * (den / _denominator);
+	ll numy = o._numerator * (den / o._denominator);
+
+	//	3. Perform the sum, making sure to account for the sign of the fractions.
+	if (isNegative())
+	{
+		numx *= -1;
+	}
+	if (o.isNegative())
+	{
+		numy *= -1;
+	}
+
+	return Fraction(numx + numy, den);
 }
 
 cc::Fraction cc::Fraction::operator-(const Fraction& o) const
@@ -52,12 +88,12 @@ cc::ull cc::Fraction::getDenominator() const
 	return _denominator;
 }
 
-bool cc::Fraction::isPositive()
+bool cc::Fraction::isPositive() const
 {
 	return !_negative && _numerator != 0;
 }
 
-bool cc::Fraction::isNegative()
+bool cc::Fraction::isNegative() const
 {
 	return _negative;
 }

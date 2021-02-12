@@ -32,10 +32,10 @@ namespace cc
 		ull getDenominator() const;
 
 		//	True if the expression is positive (not negative and not zero).
-		bool isPositive();
+		bool isPositive() const;
 
 		//	True if the expression is negative.
-		bool isNegative();
+		bool isNegative() const;
 
 		void setNumerator(ll n);
 		void setDenominator(ll d);
