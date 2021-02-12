@@ -2,7 +2,7 @@
 
 cc::Fraction::Fraction(ll numerator, ll denominator)
 {
-	_sign(numerator, denominator);
+	_setup(numerator, denominator);
 }
 
 cc::Fraction::Fraction(ll numerator):
@@ -20,36 +20,51 @@ cc::Solution cc::Fraction::solve() const
 	return Solution();
 }
 
-cc::ll cc::Fraction::getNumerator() const
+cc::ull cc::Fraction::getNumerator() const
 {
 	return _numerator;
 }
 
-cc::ll cc::Fraction::getDenominator() const
+cc::ull cc::Fraction::getDenominator() const
 {
 	return _denominator;
 }
 
+bool cc::Fraction::isPositive()
+{
+	return !_negative && _numerator != 0;
+}
+
+bool cc::Fraction::isNegative()
+{
+	return _negative;
+}
+
 void cc::Fraction::setNumerator(ll n)
 {
-	_numerator = n;
+	_setup(n, _denominator);
 }
 
 void cc::Fraction::setDenominator(ll d)
 {
-	_denominator = d;
+	_setup(_numerator, d);
 }
 
-void cc::Fraction::_sign(ll numerator, ll denominator)
+void cc::Fraction::_setup(ll numerator, ll denominator)
 {
+	//	Find the final sign of the expression through multiplication.
 	_negative = numerator * denominator < 0;
 
-	if (_numerator < 0)
+	//	Find the absolute value of the numerator and denominator and set it to our private fields.
+	if (numerator < 0)
 	{
-		_numerator = -_numerator;
+		numerator = -numerator;
 	}
-	if (_denominator < 0)
+	if (denominator < 0)
 	{
-		_denominator = -_denominator;
+		denominator = -denominator;
 	}
+
+	_numerator = numerator;
+	_denominator = denominator;
 }
