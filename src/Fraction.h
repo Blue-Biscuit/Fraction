@@ -22,9 +22,9 @@ namespace cc
 
 		//	OPERATORS
 
-		Fraction operator+(const Fraction&);
-		Fraction operator-(const Fraction&);
-		Fraction operator-();
+		Fraction operator+(const Fraction&) const;
+		Fraction operator-(const Fraction&) const;
+		Fraction operator-() const;
 
 		Solution solve() const override;
 

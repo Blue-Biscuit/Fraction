@@ -15,17 +15,17 @@ cc::Fraction::Fraction():
 {
 }
 
-cc::Fraction cc::Fraction::operator+(const Fraction&)
+cc::Fraction cc::Fraction::operator+(const Fraction&) const
 {
 	return Fraction();
 }
 
-cc::Fraction cc::Fraction::operator-(const Fraction&)
+cc::Fraction cc::Fraction::operator-(const Fraction& o) const
 {
-	return Fraction();
+	return *this + (-o);
 }
 
-cc::Fraction cc::Fraction::operator-()
+cc::Fraction cc::Fraction::operator-() const
 {
 	return Fraction(-(ll)_numerator, _denominator);
 }
