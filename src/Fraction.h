@@ -10,6 +10,7 @@
 namespace cc
 {
 	typedef long long ll;
+	typedef unsigned long long ull;
 
 
 	class Fraction : public Solvable
@@ -28,10 +29,10 @@ namespace cc
 		void setDenominator(ll d);
 
 	private:
-		void _sign();
+		void _sign(ll numerator, ll denominator);
 
-		ll _numerator;
-		ll _denominator;
+		ull _numerator;
+		ull _denominator;
 		bool _negative;
 
 	};

@@ -1,9 +1,8 @@
 #include "Fraction.h"
 
-cc::Fraction::Fraction(ll numerator, ll denominator):
-	_numerator(numerator), _denominator(denominator)
+cc::Fraction::Fraction(ll numerator, ll denominator)
 {
-	_sign();
+	_sign(numerator, denominator);
 }
 
 cc::Fraction::Fraction(ll numerator):
@@ -41,9 +40,9 @@ void cc::Fraction::setDenominator(ll d)
 	_denominator = d;
 }
 
-void cc::Fraction::_sign()
+void cc::Fraction::_sign(ll numerator, ll denominator)
 {
-	_negative = _numerator * _denominator < 0;
+	_negative = numerator * denominator < 0;
 
 	if (_numerator < 0)
 	{
