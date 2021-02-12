@@ -3,6 +3,7 @@
 cc::Fraction::Fraction(ll numerator, ll denominator):
 	_numerator(numerator), _denominator(denominator)
 {
+	_sign();
 }
 
 cc::Fraction::Fraction(ll numerator):
@@ -38,4 +39,18 @@ void cc::Fraction::setNumerator(ll n)
 void cc::Fraction::setDenominator(ll d)
 {
 	_denominator = d;
+}
+
+void cc::Fraction::_sign()
+{
+	_negative = _numerator * _denominator < 0;
+
+	if (_numerator < 0)
+	{
+		_numerator = -_numerator;
+	}
+	if (_denominator < 0)
+	{
+		_denominator = -_denominator;
+	}
 }

@@ -28,8 +28,11 @@ namespace cc
 		void setDenominator(ll d);
 
 	private:
+		void _sign();
+
 		ll _numerator;
 		ll _denominator;
+		bool _negative;
 
 	};
 }
