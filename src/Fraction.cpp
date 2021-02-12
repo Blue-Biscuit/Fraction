@@ -33,6 +33,11 @@ cc::Fraction::Fraction():
 {
 }
 
+cc::Fraction cc::Fraction::multiplicativeInverse() const
+{
+	return Fraction(_denominator, _numerator);
+}
+
 bool cc::Fraction::undefined() const
 {
 	return _denominator == 0;
@@ -85,6 +90,11 @@ cc::Fraction cc::Fraction::operator*(const Fraction& o) const
 	}
 
 	return Fraction(numx * numy, _denominator * o._denominator);
+}
+
+cc::Fraction cc::Fraction::operator/(const Fraction& o) const
+{
+	return *this * o.multiplicativeInverse();
 }
 
 cc::Fraction cc::Fraction::operator-(const Fraction& o) const

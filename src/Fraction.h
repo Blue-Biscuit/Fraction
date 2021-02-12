@@ -22,6 +22,9 @@ namespace cc
 
 		//	METHODS
 
+		//	Gets the multiplicative inverse of the fraction.
+		Fraction multiplicativeInverse() const;
+
 		//	True if the fraction is a div by zero.
 		bool undefined() const;
 
@@ -39,6 +42,9 @@ namespace cc
 
 		//	Multiplication opeartor for Fractions.
 		Fraction operator*(const Fraction&) const;
+
+		//	Division operator for Fractions.
+		Fraction operator/(const Fraction&) const;
 
 		//	negate operator for Fractions.
 		Fraction operator-() const;
