@@ -37,6 +37,9 @@ namespace cc
 		//	If the subtract fails, returns 0/0.
 		Fraction operator-(const Fraction&) const;
 
+		//	Multiplication opeartor for Fractions.
+		Fraction operator*(const Fraction&) const;
+
 		//	negate operator for Fractions.
 		Fraction operator-() const;
 

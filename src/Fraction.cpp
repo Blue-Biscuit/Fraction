@@ -71,6 +71,22 @@ cc::Fraction cc::Fraction::operator+(const Fraction& o) const
 	return Fraction(numx + numy, den);
 }
 
+cc::Fraction cc::Fraction::operator*(const Fraction& o) const
+{
+	ll numx = _numerator;
+	ll numy = o._numerator;
+	if (isNegative())
+	{
+		numx *= -1;
+	}
+	if (o.isNegative())
+	{
+		numy *= -1;
+	}
+
+	return Fraction(numx * numy, _denominator * o._denominator);
+}
+
 cc::Fraction cc::Fraction::operator-(const Fraction& o) const
 {
 	return *this + (-o);
