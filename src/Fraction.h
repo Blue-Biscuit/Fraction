@@ -20,16 +20,50 @@ namespace cc
 		Fraction(ll numerator);
 		Fraction();
 
+	//	METHODS
+
+		//	Gets the multiplicative inverse of the fraction.
+		Fraction multiplicativeInverse() const;
+
+		//	True if the fraction is a div by zero.
+		bool undefined() const;
+
+	//	OPERATORS
+
+		//	Addition opeartor for Fractions.
+		//
+		//	If the add fails, returns 0/0.
+		Fraction operator+(const Fraction&) const;
+
+		//	subtraction operator for Fractions.
+		//
+		//	If the subtract fails, returns 0/0.
+		Fraction operator-(const Fraction&) const;
+
+		//	Multiplication opeartor for Fractions.
+		Fraction operator*(const Fraction&) const;
+
+		//	Division operator for Fractions.
+		Fraction operator/(const Fraction&) const;
+
+		//	negate operator for Fractions.
+		Fraction operator-() const;
+
+	//	OVERRIDES
+
+		//	Gets the approximate solution to the ratio.
 		Solution solve() const override;
+
+	//	ACCESSORS
 
 		ull getNumerator() const;
 		ull getDenominator() const;
 
 		//	True if the expression is positive (not negative and not zero).
-		bool isPositive();
+		bool isPositive() const;
 
 		//	True if the expression is negative.
-		bool isNegative();
+		bool isNegative() const;
 
 		void setNumerator(ll n);
 		void setDenominator(ll d);
@@ -45,4 +79,7 @@ namespace cc
 		bool _negative;
 
 	};
+
+
+
 }
