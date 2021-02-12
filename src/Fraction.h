@@ -19,6 +19,9 @@ namespace cc
 		Fraction(ll numerator);
 		Fraction();
 
+		Fraction operator+(const Fraction&);
+		Fraction operator-(const Fraction&);
+
 		Solution solve() const override;
 
 		ll getNumerator() const;
