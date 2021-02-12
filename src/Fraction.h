@@ -10,6 +10,7 @@
 namespace cc
 {
 	typedef long long ll;
+	typedef unsigned long long ull;
 
 
 	class Fraction : public Solvable
@@ -21,15 +22,27 @@ namespace cc
 
 		Solution solve() const override;
 
-		ll getNumerator() const;
-		ll getDenominator() const;
+		ull getNumerator() const;
+		ull getDenominator() const;
+
+		//	True if the expression is positive (not negative and not zero).
+		bool isPositive();
+
+		//	True if the expression is negative.
+		bool isNegative();
 
 		void setNumerator(ll n);
 		void setDenominator(ll d);
 
+
 	private:
-		ll _numerator;
-		ll _denominator;
+		//	Setup method which converts the ll's to ull's, while keeping
+		//	track of the sign of the final expression.
+		void _setup(ll numerator, ll denominator);
+
+		ull _numerator;
+		ull _denominator;
+		bool _negative;
 
 	};
 }
