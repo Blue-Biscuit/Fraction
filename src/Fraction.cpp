@@ -1,7 +1,5 @@
 #include "Fraction.h"
 
-#include <numeric>
-
 cc::ull __gcd_helper(cc::ull x, cc::ull y)
 {
 	if (y == 0)
@@ -12,6 +10,11 @@ cc::ull __gcd_helper(cc::ull x, cc::ull y)
 	{
 		return __gcd_helper(y, x % y);
 	}
+}
+
+cc::ull __lcm_helper(cc::ull x, cc::ull y)
+{
+	return (x * y) / __gcd_helper(x, y);
 }
 
 
@@ -30,20 +33,32 @@ cc::Fraction::Fraction():
 {
 }
 
+bool cc::Fraction::undefined() const
+{
+	return _denominator == 0;
+}
+
 cc::Fraction cc::Fraction::operator+(const Fraction& o) const
 {
-	//	1. Find the common denominator between the two numbers.
-	//	2. Adjust the numerator based upon the new denominator.
-	//	3. Perform the sum, making sure to account for the sign of the fractions.
+	//	1. Error check; we can't add with any denominators of zero.
+	//	2. Find the common denominator between the two numbers.
+	//	3. Adjust the numerator based upon the new denominator.
+	//	4. Perform the sum, making sure to account for the sign of the fractions.
 
-	//	1. Find the common denominator between the two numbers.
-	ull den = __gcd_helper(_denominator, o._denominator);
+	//	1. Error check; we can't add with any denominators of zero.
+	if (undefined() || o.undefined())
+	{
+		return Fraction(0, 0);
+	}
 
-	//	2. Adjust the numerator based upon the new denominator.
+	//	2. Find the common denominator between the two numbers.
+	ull den = __lcm_helper(_denominator, o._denominator);
+
+	//	3. Adjust the numerator based upon the new denominator.
 	ll numx = _numerator * (den / _denominator);
 	ll numy = o._numerator * (den / o._denominator);
 
-	//	3. Perform the sum, making sure to account for the sign of the fractions.
+	//	4. Perform the sum, making sure to account for the sign of the fractions.
 	if (isNegative())
 	{
 		numx *= -1;

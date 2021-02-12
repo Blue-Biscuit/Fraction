@@ -20,10 +20,24 @@ namespace cc
 		Fraction(ll numerator);
 		Fraction();
 
+		//	METHODS
+
+		//	True if the fraction is a div by zero.
+		bool undefined() const;
+
 		//	OPERATORS
 
+		//	Addition opeartor for Fractions.
+		//
+		//	If the add fails, returns 0/0.
 		Fraction operator+(const Fraction&) const;
+
+		//	subtraction operator for Fractions.
+		//
+		//	If the subtract fails, returns 0/0.
 		Fraction operator-(const Fraction&) const;
+
+		//	negate operator for Fractions.
 		Fraction operator-() const;
 
 		Solution solve() const override;
@@ -51,4 +65,7 @@ namespace cc
 		bool _negative;
 
 	};
+
+
+
 }
