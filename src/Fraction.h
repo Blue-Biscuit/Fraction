@@ -20,7 +20,7 @@ namespace cc
 		Fraction(ll numerator);
 		Fraction();
 
-		//	METHODS
+	//	METHODS
 
 		//	Gets the multiplicative inverse of the fraction.
 		Fraction multiplicativeInverse() const;
@@ -28,7 +28,7 @@ namespace cc
 		//	True if the fraction is a div by zero.
 		bool undefined() const;
 
-		//	OPERATORS
+	//	OPERATORS
 
 		//	Addition opeartor for Fractions.
 		//
@@ -49,7 +49,12 @@ namespace cc
 		//	negate operator for Fractions.
 		Fraction operator-() const;
 
+	//	OVERRIDES
+
+		//	Gets the approximate solution to the ratio.
 		Solution solve() const override;
+
+	//	ACCESSORS
 
 		ull getNumerator() const;
 		ull getDenominator() const;
