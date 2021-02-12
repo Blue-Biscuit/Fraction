@@ -20,8 +20,11 @@ namespace cc
 		Fraction(ll numerator);
 		Fraction();
 
+		//	OPERATORS
+
 		Fraction operator+(const Fraction&);
 		Fraction operator-(const Fraction&);
+		Fraction operator-();
 
 		Solution solve() const override;
 

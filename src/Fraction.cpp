@@ -25,6 +25,11 @@ cc::Fraction cc::Fraction::operator-(const Fraction&)
 	return Fraction();
 }
 
+cc::Fraction cc::Fraction::operator-()
+{
+	return Fraction(-(ll)_numerator, _denominator);
+}
+
 cc::Solution cc::Fraction::solve() const
 {
 	if (_denominator == 0)
