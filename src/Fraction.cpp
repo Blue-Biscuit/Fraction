@@ -135,7 +135,7 @@ cc::Solution cc::Fraction::solve() const
 	}
 	else
 	{
-		return Solution(_numerator / _denominator);
+		return Solution((double)_numerator / _denominator);
 	}
 }
 
