@@ -107,6 +107,11 @@ cc::Fraction cc::Fraction::operator-() const
 	return Fraction(-(ll)_numerator, _denominator);
 }
 
+cc::Solution cc::Fraction::operator+(double x) const
+{
+	return solve() + x;
+}
+
 cc::Solution cc::Fraction::solve() const
 {
 	if (_denominator == 0)
@@ -170,3 +175,8 @@ void cc::Fraction::_setup(ll numerator, ll denominator)
 
 const cc::Fraction cc::Fraction::PI = cc::Fraction(355, 113);
 const cc::Fraction cc::Fraction::E = cc::Fraction(106, 39);
+
+cc::Solution cc::operator+(double x, const Fraction& y)
+{
+	return y + x;
+}
