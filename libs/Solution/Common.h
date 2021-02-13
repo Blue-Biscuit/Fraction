@@ -1,4 +1,5 @@
-#pragma once
+#ifndef COMMON_SOLUTION_H
+#define COMMON_SOLUTION_H
 
 #include <limits>
 namespace cc
@@ -7,4 +8,4 @@ namespace cc
 }
 
 
-
+#endif
