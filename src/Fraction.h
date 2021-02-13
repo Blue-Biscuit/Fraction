@@ -68,6 +68,14 @@ namespace cc
 		void setNumerator(ll n);
 		void setDenominator(ll d);
 
+	//	STATIC CONSTS
+
+		//	A rational approximation for Pi.
+		static const Fraction PI;
+
+		//	A ration approximation for Euler's Number.
+		static const Fraction E;
+
 
 	private:
 		//	Setup method which converts the ll's to ull's, while keeping

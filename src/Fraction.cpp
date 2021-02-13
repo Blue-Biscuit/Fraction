@@ -167,3 +167,6 @@ void cc::Fraction::_setup(ll numerator, ll denominator)
 	_numerator = numerator;
 	_denominator = denominator;
 }
+
+const cc::Fraction cc::Fraction::PI = cc::Fraction(355, 113);
+const cc::Fraction cc::Fraction::E = cc::Fraction(106, 39);
