@@ -28,7 +28,7 @@ namespace cc
 		//	True if the fraction is a div by zero.
 		bool undefined() const;
 
-	//	OPERATORS
+	//	MAIN OPERATORS
 
 		//	Addition opeartor for Fractions.
 		//
@@ -48,6 +48,20 @@ namespace cc
 
 		//	negate operator for Fractions.
 		Fraction operator-() const;
+
+	//	SECONDARY OPERATORS
+
+		Solution operator+(double) const;
+		friend Solution operator+(double, const Fraction&);
+
+		Solution operator-(double) const;
+		friend Solution operator-(double, const Fraction&);
+
+		Solution operator*(double) const;
+		friend Solution operator*(double, const Fraction&);
+
+		Solution operator/(double) const;
+		friend Solution operator/(double, const Fraction&);
 
 	//	OVERRIDES
 

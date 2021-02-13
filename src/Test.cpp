@@ -6,13 +6,9 @@
 
 int main()
 {
+	cc::Fraction x(1, 2);
+	double y = .5;
+	cc::Solution result = x / y;
 
-	cc::Fraction f(1, 2);
-	cc::Fraction f2(1, 3);
-
-	cc::Fraction r = f - f2;
-
-	std::cout << "Numerator: " << r.getNumerator() << "\n";
-	std::cout << "Denominator: " << r.getDenominator() << std::endl;
-
+	std::cout << result.getVal() << std::endl;
 }

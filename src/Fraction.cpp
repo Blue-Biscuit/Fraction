@@ -107,6 +107,26 @@ cc::Fraction cc::Fraction::operator-() const
 	return Fraction(-(ll)_numerator, _denominator);
 }
 
+cc::Solution cc::Fraction::operator+(double x) const
+{
+	return solve() + x;
+}
+
+cc::Solution cc::Fraction::operator-(double x) const
+{
+	return operator+(-x);
+}
+
+cc::Solution cc::Fraction::operator*(double x) const
+{
+	return solve() * x;
+}
+
+cc::Solution cc::Fraction::operator/(double x) const
+{
+	return solve() / x;
+}
+
 cc::Solution cc::Fraction::solve() const
 {
 	if (_denominator == 0)
@@ -115,7 +135,7 @@ cc::Solution cc::Fraction::solve() const
 	}
 	else
 	{
-		return Solution(_numerator / _denominator);
+		return Solution((double)_numerator / _denominator);
 	}
 }
 
@@ -170,3 +190,23 @@ void cc::Fraction::_setup(ll numerator, ll denominator)
 
 const cc::Fraction cc::Fraction::PI = cc::Fraction(355, 113);
 const cc::Fraction cc::Fraction::E = cc::Fraction(106, 39);
+
+cc::Solution cc::operator+(double x, const Fraction& y)
+{
+	return y + x;
+}
+
+cc::Solution cc::operator-(double x, const Fraction& y)
+{
+	return x + (-y);
+}
+
+cc::Solution cc::operator*(double x, const Fraction& y)
+{
+	return y * x;
+}
+
+cc::Solution cc::operator/(double x, const Fraction& y)
+{
+	return x / y.solve();
+}
