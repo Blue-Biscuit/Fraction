@@ -112,6 +112,11 @@ cc::Solution cc::Fraction::operator+(double x) const
 	return solve() + x;
 }
 
+cc::Solution cc::Fraction::operator-(double x) const
+{
+	return operator+(-x);
+}
+
 cc::Solution cc::Fraction::solve() const
 {
 	if (_denominator == 0)
@@ -179,4 +184,9 @@ const cc::Fraction cc::Fraction::E = cc::Fraction(106, 39);
 cc::Solution cc::operator+(double x, const Fraction& y)
 {
 	return y + x;
+}
+
+cc::Solution cc::operator-(double x, const Fraction& y)
+{
+	return x + (-y);
 }

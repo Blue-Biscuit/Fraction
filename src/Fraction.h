@@ -54,6 +54,9 @@ namespace cc
 		Solution operator+(double) const;
 		friend Solution operator+(double, const Fraction&);
 
+		Solution operator-(double) const;
+		friend Solution operator-(double, const Fraction&);
+
 	//	OVERRIDES
 
 		//	Gets the approximate solution to the ratio.
